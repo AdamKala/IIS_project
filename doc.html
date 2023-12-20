@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-2"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Sociální síť</h1> <!-- Nahradte názvem svého zadání -->
+
+<!-- TODO: dodělat popis činnosti v týmu -->
+
+<dl>
+	<dt>Autoři</dt>
+	<a>Všechny kroky implementace byly konzultovány na pravidelných poradách.</a>
+	<dd>Adam Kala - <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xkalaa00@stud.fit.vutbr.cz">xkalaa00@stud.fit.vutbr.cz</a> 
+		<ul>
+			<li>Dokumentace</li>
+			<li>Návrh</li>
+			<li>Analýza</li>
+			<li>Frontend (AlpineJS, Tailwind)</li>
+			<li>Backend (PHP-Laravel)</li>
+		</ul>
+	</dd>
+	<dd>Michal Wagner - <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xwagne12@stud.fit.vutbr.cz">xwagne12@stud.fit.vutbr.cz</a> 
+		<ul>
+			<li>Dokumentace</li>
+			<li>Návrh</li>
+			<li>Analýza</li>
+			<li>Frontend (AlpineJS, Tailwind)</li>
+			<li>Backend (PHP-Laravel)</li>
+		</ul>
+	</dd>
+  <dd>Filip Přichystal - <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xprich09@stud.fit.vutbr.cz">xprich09@stud.fit.vutbr.cz</a> 
+		<ul>
+			<li>Dokumentace</li>
+			<li>Návrh</li>
+			<li>Analýza</li>
+			<li>Databáze (MariaDB)</li>
+			<li>Backend (PHP-Laravel)</li>
+		</ul>
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="https://projektfit.unknown.agency/">https://projektfit.unknown.agency/</a></dd>
+	<a>Pokud je potřeba resetovat data aplikace pomocí seeds. Můžeme použít příponu /seed <a href="https://projektfit.unknown.agency/seed">(https://projektfit.unknown.agency/seed)</a>, která nám uvede aplikaci do původního stavu.</a>
+</dl>
+
+<!-- TODO: upravit tabulku podle vstupních uživatelů -->
+
+<h2>Uživatelé systému pro testování</h2>
+<!-- <p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p> -->
+<table>
+	<tr><th>Jméno</th><th>E-mail</th><th>Heslo</th><th>Role</th></tr>
+	<tr><td>Admin</td><td>admin@admin.com</td><td>admin</td><td>Administrátor, Správce skupiny (Facebook)</td></tr>
+	<tr><td>Tester</td><td>tester@tester.com</td><td>tester</td><td>Správce skupiny (Sportovní nadšenci, Web developers), Člen skupiny (Srandičky tvojí tetičky)</td></tr>
+	<tr><td>Pepa</td><td>pepa@seznam.cz</td><td>123456789</td><td>Správce skupiny (Srandičky tvojí tetičky)</td></tr>
+	<tr><td>Ema</td><td>emaishere@gmail.com</td><td>ema123456</td><td>Správce skupiny (Let's hear your opinions), Člen skupiny (Facebook)</td></tr>
+	<tr><td>Fanda</td><td>fanda@gmail.com</td><td>fanda123456</td><td>Registrovaný uživatel</td></tr>
+	<tr><td>Marek</td><td>marek@gmail.com</td><td>marek123456</td><td>Moderátor skupiny (Let's hear your opinions)</td></tr>
+</table>
+
+<img src="use_case.png" alt="Use case diagram">
+
+<!-- <p>(Diagram případů užití není nutné vkládat, pokud IS implementuje role a případy užití definované zadáním.)</p> -->
+
+<!-- TODO: video funkční aplikace -->
+
+<h3>Video</h3>
+
+<p><a href="https://drive.google.com/file/d/1_5B6fwkE2psHYC3loclxm88ihk6PPJY5/view?usp=sharing">Odkaz na video</a></p> 
+
+<!-- TODO: dodělat implementaci -->
+
+<h2>Implementace</h2>
+<!-- <p>Stručná dokumentace k implementaci, která popisuje, které části projektu (např. PHP skripty) implementují jednotlivé případy použití.</p> -->
+<h3>Backend</h3>
+<p>Systém je implementován v jazyce PHP za použití frameworku Laravel. Pro systém řízení báze dat je použit MySQL konkrétně MariaDB.</p>
+<h3>Frontend</h3>
+<p>Frontend je implementován pomocí tailwind a Laravel livewire automaticky poskytuje AlpineJS integraci.</p>
+
+<h3>Popis implementace</h3>
+<p>Projekt je implementovaný podle modelu MVC.</p>
+<p>Model jsou soubory pracující s databází.</p>
+<p>Část View představují soubory s příponou .blade.php. Soubory obsahují zobrazení stránek.</p>
+<p>Díky využití Laravel Livewire využití Controllerů nebylo potřeba.</p>
+<p>Vytvoření databáze zajišťují migrace.</p>
+
+<p>Přihlášení uživatelé jsou automaticky odhlášení po 120 minutách nečinnosti.</p>
+
+<h3>Databáze</h3>
+<h4>Návrh databáze:</h4>
+<p>Databáze se skládá z následujících navzájem propojených tabulek:</p>
+<ul>
+	<li>users - obsahuje informace o uživatelovi jako jeho jméno, e-mail, heslo, viditelnost a další</li>
+	<li>groups - obsahuje informace o skupině jako její jméno, slug, popis, viditelnost a další</li>
+	<li>threads - obsahuje informace o vláknu jako jeho jméno, text, slug, viditelnost a další</li>
+	<li>comments - obsahuje informace o příspěvku jako jeho autora, text, hodnocení a další</li>
+	<li>sub_comments - obsahuje informace o komentáři příspěvku jako jeho autora, text a další</li>
+	<li>votes - obsahuje informace o hlasu jako jeho typ(upvote, downvote) a další</li>
+	<li>roles - obsahuje informace o roli jako její název a další</li>
+	<li>tags - obsahuje informace o tagu jako jeho název a další</li>
+	<li>tags_thread - mezitabulka spojující vlákno a tag, která se používá pro tagy ve vláknech</li>
+	<li>group_user - obsahuje informace o uživateli ve skupině jako jeho id a další</li>
+	<li>model_has_roles - mezitabulka spojující role a uživatele, která určuje role uživatele</li>
+	<li>model_has_permissions - mezitabulka spojující práva a uživatele, která určuje práva uživatele</li>
+	<li>permissions - obsahuje informace o právech jako jeho název a další </li>
+	<li>role_has_permissions - mezitabulka spojující role a práva pomocí, které se určují práva role</li>
+	<li>group_manage_requests - mezitabulka spojující uživatele se skupinou pomocí, které se vyřizují požadavky o správu skupiny</li>
+	<li>group_join_requests - mezitabulka spojující uživatele se skupinou pomocí, které se vyřizují požadavky o vstup do skupiny</li>
+	<li>user_manage_groups -  mezitabulka spojující uživatele se skupinou pomocí, které se pracuje s uživateli ve skupině</li>
+</ul>
+<img src="relacni_databaze.png" alt="Relacni databaze">
+
+<!-- <p>Zde vložte grafické schéma relační databáze (tabulek v databázi).</p> -->
+
+
+<h2>Instalace</h2>
+<ul>
+<li>Softwarové požadavky</li>
+	<ul>
+		<li>PHP ^8.1</li>
+		<li>node.js ^20.9</li>
+		<li>guzzlehttp/guzzle ^7.2</li>
+		<li>jantinnerezo/livewire-alert 3.0</li>
+		<li>laravel/framework ^10.10</li>
+		<li>laravel/jetstream ^4.0</li>
+		<li>laravel/sanctum ^3.2</li>
+		<li>laravel/tinker ^2.8</li>
+		<li>laravel/livewire ^2.12</li>
+		<li>spatie/laravel-permission ^6.1</li>
+	</ul>
+<li>Instalace pro localhost</li>
+<ul>
+	<li>Rozbalit projekt do složky</li>
+	<li>Instalace a spuštění db serveru, například přes XAMPP</li>
+	<li>Vytvořit kopii .env.example s názvem .env pro propojení s db systemém</li>
+	<li>V kořenovém adresáři zadat postupně commandy:</li>
+    <ul>
+        <li>composer install</li>
+		<li>npm install</li>
+		<li>php artisan jetstream:install livewire</li>
+		<li>composer require laravel/jetstream</li>
+		<li>composer require jantinnerezo/livewire-alert:^3.0</li>
+        <li>Vygenerování klíče pro databázi - php artisan key:generate</li>
+        <li>Inicializace databáze - php artisan migrate</li>
+        <li>Dummy data - php artisan db:seed</li>
+		<li>V prvním terminálu: npm run dev</li>
+        <li>V druhém terminálu: php artisan serve</li>
+		<li>Přístup k aplikaci pomocí localhost: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></li>
+    </ul>
+</ul>
+</ul>
+
+<h2>Možná omezení</h2>
+<p>Projekt není možné spustit z odevzdaných souborů. Neobsahují všechny knihovny a jiné požadované soubory Laravelem.</p>
+<p>V projektu není možnost nahrávat obrázky.</p>
+
+</body>
+</html>
